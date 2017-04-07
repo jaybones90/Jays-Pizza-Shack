@@ -11,13 +11,11 @@ Pizza.prototype.getSizeCost = function() {
   } else if (this.size === "large") {
     this.cost += 8;
   }
-  if (this.toppings.length <= 2) {
-    this.cost += 2
-  } else if (this.toppings.length <= 4){
-    this.cost += 4
-  } else if (this.toppings.length <= 6) {
-    this.cost += 6
-  }
+  var addToppings = 0;
+  this.toppings.forEach(function(topping){
+    addToppings += 1
+  });
+  this.cost += addToppings;
 };
 
 
@@ -26,10 +24,11 @@ Pizza.prototype.getSizeCost = function() {
 
 
 $(document).ready(function(){
-  // $("#show-pizza-choice").hide();
+  $("#show-pizza-choice").hide();
 
   $("#submit-button").click(function(){
     $("#show-pizza-choice").show();
+    $("#show-pizza-choice ul").text("")
     var pizzaSize = $("input[name=size]:checked").val();
 
     var pizzaToppings = [];
@@ -44,18 +43,16 @@ $(document).ready(function(){
 
 
 
-    $("#show-pizza-choice p").text("a " + newPizza.size + " pizza");
+    $("#show-pizza-choice").html(
+      "<h3>" + "You Have Selected A:" + "</h3>" +
+      "<p>" + newPizza.size + " pizza </p>" +
+      "<h3>" + "With These Toppings:" + "</h3>" +
+      "<ul></ul>")
 
-
-
-
+      newPizza.toppings.forEach(function(topping){
+      $("#show-pizza-choice ul").append("<li>" + topping + "</li>");
+    });
 
   });
-
-
-
-
-
-
 
 });
