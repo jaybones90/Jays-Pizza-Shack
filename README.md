@@ -1,4 +1,4 @@
-# Pizza
+# Pizza Order Website
 #### A simple web app using JS objects and prototypes
 #### By Jason Ainsworth
 
@@ -24,7 +24,7 @@ No known issues
 ## Technologies Used
 * javascript/ jQuery
 ## Support and contact details
-_comment on this repo to contact_
+Feel free to contact me at jasoncruze@gmail.com
 ### License
 _MIT_
-Copyright (c) _2017_ **Jason Ainsworth** _(for Epicodus)_
+Copyright (c) _2017_ **Jason Ainsworth**

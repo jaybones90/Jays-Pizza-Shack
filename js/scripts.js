@@ -60,17 +60,15 @@ $(document).ready(function(){
 //--------------------------------------- creates a new order object and sets the name property as the users inputted name and sets the pizza property as the newly created pizza object which includes the users inputted pizza choices
     var newOrder = new Order(userNameInput, newPizza);
     newOrder.pizza.push(newPizza);
-  
 
 
 
-//------------------------------ displays to the user his pizza choice
 
 
+//------------------ displays the users name after they submit and makes their name clickable
     $("#show-pizza-choice ul").append("<li><span class=clickable>" + newOrder.name + "</span></li>")
 
-
-
+    //------------------------------ displays to the user his pizza choice
 
     $(".clickable").click(function(){
       $("#show-pizza-choice").html(
