@@ -1,3 +1,8 @@
+function Order (name, pizza) {
+  this.name = name;
+  this.pizza = pizza;
+}
+
 function Pizza(size, toppings, cost) {
   this.size = size;
   this.toppings = 0;
@@ -29,6 +34,7 @@ $(document).ready(function(){
   $("#submit-button").click(function(){
     $("#show-pizza-choice").show();
     $("#show-pizza-choice ul").text("")
+    var userNameInput = $("input[name=name]").val();
     var pizzaSize = $("input[name=size]:checked").val();
 
     var pizzaToppings = [];
@@ -36,11 +42,14 @@ $(document).ready(function(){
       pizzaToppings.push($(this).val());
     });
 
-    var newPizza = new Pizza(pizzaSize,pizzaToppings)
+
+    var newPizza = new Pizza(pizzaSize,pizzaToppings);
     newPizza.toppings = pizzaToppings;
     newPizza.getSizeCost();
-    console.log(newPizza);
 
+    var newOrder = new Order(userNameInput, newPizza);
+    newOrder.pizza = newPizza;
+    console.log(newOrder);
 
 
     $("#show-pizza-choice").html(
