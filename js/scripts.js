@@ -34,6 +34,12 @@ $(document).ready(function(){
 
 
   $("#submit-button").click(function(){
+    var userNameInput = $("input[name=name]").val();
+
+    if (userNameInput === "") {
+      $("#no-name-input").text("Please Enter A Name")
+      return
+    }
 //--------------------------------------- show the div that contains info about the users pizza choice when they click the submit button
     $("#show-pizza-choice").show();
 //--------------------------------hides all the user inputs and the submit button
@@ -41,7 +47,6 @@ $(document).ready(function(){
 //----------------------------------------clears the toppings list for the user display
     $("#show-pizza-choice ul").text("")
 //------------------------------------------setting variables to contain the values of the users inputted name, pizza size, and toppings
-    var userNameInput = $("input[name=name]").val();
     var pizzaSize = $("input[name=size]:checked").val();
     var pizzaToppings = [];
     $("input[name=toppings]:checked").each(function(){
@@ -55,21 +60,33 @@ $(document).ready(function(){
 //--------------------------------------- creates a new order object and sets the name property as the users inputted name and sets the pizza property as the newly created pizza object which includes the users inputted pizza choices
     var newOrder = new Order(userNameInput, newPizza);
     newOrder.pizza.push(newPizza);
-    console.log(newOrder);
+  
+
+
 
 //------------------------------ displays to the user his pizza choice
-    $("#show-pizza-choice").html(
-      "<h1>" + "Hey " + newOrder.name + ", this is your pizza order:" + "</h1><hr><br>" +
-      "<h2>" + "Size:" + "</h2>" +
-      "<p class=display-pizza-text>" + newPizza.size + " pizza </p>" +
-      "<h2>" + "Toppings:" + "</h2>" +
-      "<div id=align-bullets>" +
-        "<ul></ul>" +
-      "</div>" +
-      "<h2>" + "Price:" + "</h2>" +
-      "<p class=display-pizza-text>" + "$" + newPizza.cost + "</p><br>")
-      newPizza.toppings.forEach(function(topping){
-      $("#show-pizza-choice ul").append("<li>" + topping + "</li>");
+
+
+    $("#show-pizza-choice ul").append("<li><span class=clickable>" + newOrder.name + "</span></li>")
+
+
+
+
+    $(".clickable").click(function(){
+      $("#show-pizza-choice").html(
+        "<h1>" + "Hey " + newOrder.name + ", this is your pizza order:" + "</h1><hr><br>" +
+        "<h2>" + "Size:" + "</h2>" +
+        "<p class=display-pizza-text>" + newPizza.size + " pizza </p>" +
+        "<h2>" + "Toppings:" + "</h2>" +
+        "<div id=align-bullets>" +
+          "<ul></ul>" +
+        "</div>" +
+        "<h2>" + "Price:" + "</h2>" +
+        "<p class=display-pizza-text>" + "$" + newPizza.cost + "</p><br>")
+        newPizza.toppings.forEach(function(topping){
+          $("#show-pizza-choice ul").append("<li>" + topping + "</li>");
+        });
+
     });
 
   });

@@ -3,6 +3,7 @@
 #### By Jason Ainsworth
 
 ## Description
+This is a simple webpage for ordering a pizza. The webpage asks the user to input a name for the order and choose a pizza size as well as any desired toppings. Then when the user hits the submit button, it displays the name of the user and lets the user know that they can click on their name to view the order details.
 
 ## Project Specs:
 | Behavior |  Input   |  Output  |

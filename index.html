@@ -9,19 +9,24 @@
     <title>Jays Pizza Shack</title>
   </head>
   <body>
+    <div class="header">
+      <h1>Jays Pizza Shack</h1>
+    </div>
     <div class="container">
 
-      <div class="jumbotron">
-        <h1>Jays Pizza Shack</h1>
+      <div id="pizza-img">
+        <img src="img/pizza1.png" alt="" />
       </div>
 
       <div id="user-inputs">
         <div class="row">
           <div class="col-md-6">
+            <div id="no-name-input">
+            </div>
             <form id="form-one">
               <label>Please Enter A Name For Your Order</label><br>
               <input type="text" name="name" id="name-input">
-              <h3>Please Select Your Pizza Size</h3>
+              <h3>Please Select Your Pizza Size:</h3>
               <div class="radio">
                 <label><input type="radio" name="size" value="Small">Small<br><img src="img/pizza.png" alt="" class="pizza-img-small"/></label>
               </div>
@@ -35,7 +40,7 @@
 
 
         <div class="col-md-6">
-          <h3>Please Select All Your Toppings</h3>
+          <h3>Please Select All Your Toppings:</h3>
           <div class="checkbox">
             <label><input type="checkbox" name="toppings" value="Extra-Cheese">Extra Cheese</label>
           </div>
@@ -72,7 +77,10 @@
       <div class="row">
         <div class="col-lg-6" >
           <div id="show-pizza-choice">
+            <h2>Click Your Name To See Your Order Details:</h2>
+            <ul>
 
+            </ul>
           </div>
         </div>
       </div>
